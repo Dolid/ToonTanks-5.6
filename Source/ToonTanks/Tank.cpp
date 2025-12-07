@@ -6,7 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "DrawDebugHelpers.h"
+// #include "DrawDebugHelpers.h"
 ATank::ATank()
 {
     SpringArm =  CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
@@ -45,6 +45,7 @@ void ATank::Tick(float DeltaTime)
             false,
             -1.f
         );
+        RotateTurret(HitResult.ImpactPoint);
     }
 }
 
