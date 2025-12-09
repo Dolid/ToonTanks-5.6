@@ -60,7 +60,7 @@ void ATank::BeginPlay()
 
 void ATank::Move(float Value)
 {
-    UE_LOG(LogTemp, Warning, TEXT("Move called Value at %f one tick"), Value);
+    // UE_LOG(LogTemp, Warning, TEXT("Move called Value at %f one tick"), Value);
 
 	// FVector DeltaLocation(0.f);
     FVector DeltaLocation = FVector::ZeroVector;
