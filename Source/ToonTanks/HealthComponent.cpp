@@ -42,5 +42,8 @@ void UHealthComponent::OnDamageTaken(
 	AActor* DamageCauser
 )
 {
+	if(Damage <= 0.f) return;
+	Health -= Damage;
+	UE_LOG(LogTemp, Warning, TEXT("Health: %f"), Health);
 
 }
