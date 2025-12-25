@@ -30,10 +30,12 @@ private:
 	void OnDamageTaken(
 		AActor* DamagedActor,
 		float Damage,
-		const UDamageType* DdamageType,
+		const UDamageType* DamageType,
 		AController* Instigator,
 		AActor* DamageCauser
 	);
+
+	class AToonTanksGameMode* ToonTanksGameMode;
 
 public:	
 	// Called every frame
