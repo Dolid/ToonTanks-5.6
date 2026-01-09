@@ -43,19 +43,21 @@ void AProjectile::OnHit(
 {
 	auto MyOwner = GetOwner();
 	if (MyOwner == nullptr)
+	{
+		Destroy();
 		return;
+	}
 
 	auto MyOwnerInstigator = MyOwner->GetInstigatorController();
 	auto DamageTypeClass = UDamageType::StaticClass();
 
 	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
 	{
-		UGameplayStatics::ApplyDamage(
-			OtherActor,
-			Damage,
-			MyOwnerInstigator,
-			this,
-			DamageTypeClass);
-		Destroy();
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
+		if(HitParticle)
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation(), GetActorRotation());
+		}
 	}
+	Destroy();
 }

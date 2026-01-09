@@ -37,6 +37,9 @@ private:
 		FVector NormalImpulse,
 		const FHitResult& Hit
 	);
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class UParticleSystem* HitParticle;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
